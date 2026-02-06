@@ -22,7 +22,7 @@ const JobDetails = () => {
         const fetchJob = async () => {
             try {
                 // Fallback: fetch all jobs and find the one matching ID (since GET /jobs/:id might not be implemented)
-                const { data } = await api.get('/jobs');
+                const { data } = await api.get('/api/jobs');
                 const found = data.find(j => (j._id || j.id) === id);
                 if (found) {
                     setJob(found);
@@ -46,7 +46,7 @@ const JobDetails = () => {
 
         setApplying(true);
         try {
-            await api.post(`/applications/apply/${id}`);
+            await api.post(`/api/applications/apply/${id}`);
             setApplied(true);
         } catch (err) {
             alert(err.response?.data?.message || 'Failed to apply');

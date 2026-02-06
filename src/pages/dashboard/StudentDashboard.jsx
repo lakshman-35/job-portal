@@ -29,13 +29,13 @@ const StudentDashboard = () => {
         const fetchData = async () => {
             try {
                 // Fetch Jobs
-                const jobsRes = await api.get('/jobs');
+                const jobsRes = await api.get('/api/jobs');
                 if (Array.isArray(jobsRes.data)) {
                     setJobs(jobsRes.data);
                 }
 
                 // Fetch Applications for Stats
-                const appsRes = await api.get('/applications/student');
+                const appsRes = await api.get('/api/applications/student');
                 if (Array.isArray(appsRes.data)) {
                     const apps = appsRes.data;
 

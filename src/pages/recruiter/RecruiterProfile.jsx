@@ -53,7 +53,7 @@ const RecruiterProfile = () => {
     const fetchProfile = async () => {
         try {
             setLoading(true);
-            const { data } = await api.get('/recruiter/profile');
+            const { data } = await api.get('/api/recruiter/profile');
             setFormData({
                 fullName: data.fullName || '',
                 email: data.email || '',
@@ -101,9 +101,9 @@ const RecruiterProfile = () => {
 
         try {
             if (mode === 'create') {
-                await api.post('/recruiter/profile', formData);
+                await api.post('/api/recruiter/profile', formData);
             } else {
-                await api.put('/recruiter/profile', formData);
+                await api.put('/api/recruiter/profile', formData);
             }
 
             // Sync Front-end User State (Navbar etc)
@@ -129,7 +129,7 @@ const RecruiterProfile = () => {
         if (!window.confirm('Are you sure you want to delete your recruiter profile? This action cannot be undone.')) return;
 
         try {
-            await api.delete('/recruiter/profile');
+            await api.delete('/api/recruiter/profile');
             alert('Profile deleted successfully.');
             window.location.reload(); // Refresh to reflect changes/logout
         } catch (err) {

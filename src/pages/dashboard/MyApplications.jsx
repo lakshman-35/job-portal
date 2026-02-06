@@ -14,7 +14,7 @@ const MyApplications = () => {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const { data } = await api.get('/applications/student');
+                const { data } = await api.get('/api/applications/student');
                 setApplications(data);
                 setLoading(false);
             } catch (err) {

@@ -49,7 +49,7 @@ const Profile = () => {
             if (authUser) {
                 try {
                     // Try fetch from Backend API
-                    const { data } = await api.get('/profile');
+                    const { data } = await api.get('/api/profile');
                     if (data) {
                         setProfile({ ...data, name: authUser.name, email: authUser.email }); // Ensure user details match auth
                         setTempProfile({ ...data, name: authUser.name, email: authUser.email });
@@ -177,7 +177,7 @@ const Profile = () => {
         setSaving(true);
         try {
             // Save to Backend
-            await api.put('/profile', tempProfile);
+            await api.put('/api/profile', tempProfile);
 
             // Save to LocalStorage (Cache)
             if (authUser?.email) {

@@ -36,7 +36,7 @@ const PostJob = () => {
                 skillsRequired: skillsArray
             };
 
-            await api.post('/jobs', jobData);
+            await api.post('/api/jobs', jobData);
             navigate('/recruiter-dashboard');
         } catch (err) {
             setError(err.response?.data?.message || 'Failed to post job');
@@ -55,7 +55,7 @@ const PostJob = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                
+
                 <div className="mb-10">
                     <button
                         onClick={() => navigate(-1)}

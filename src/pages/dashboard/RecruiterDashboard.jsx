@@ -13,7 +13,7 @@ const RecruiterDashboard = () => {
     useEffect(() => {
         const fetchMyJobs = async () => {
             try {
-                const { data } = await api.get('/jobs/myjobs');
+                const { data } = await api.get('/api/jobs/myjobs');
                 setPostedJobs(data);
                 setLoading(false);
             } catch (err) {

@@ -19,7 +19,7 @@ const JobApplications = () => {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const { data } = await api.get(`/applications/job/${jobId}`);
+                const { data } = await api.get(`/api/applications/job/${jobId}`);
                 setApplications(data);
                 setLoading(false);
             } catch (err) {
@@ -32,7 +32,7 @@ const JobApplications = () => {
 
     const handleUpdateStatus = async (appId, newStatus) => {
         try {
-            await api.patch(`/applications/status/${appId}`, { status: newStatus });
+            await api.patch(`/api/applications/status/${appId}`, { status: newStatus });
             // Update local state
             setApplications(prev => prev.map(app =>
                 app._id === appId ? { ...app, status: newStatus } : app
