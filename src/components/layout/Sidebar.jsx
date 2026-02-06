@@ -10,19 +10,19 @@ const Sidebar = () => {
     if (!user) return null;
 
     const navItems = [
-        { name: 'Dashboard', to: user.role === 'recruiter' ? '/api/recruiter-dashboard' : '/api/student-dashboard', icon: LayoutDashboard },
+        { name: 'Dashboard', to: user.role === 'recruiter' ? '/recruiter-dashboard' : '/student-dashboard', icon: LayoutDashboard },
 
         // Student Specific
         ...(user.role === 'student' ? [
-            { name: 'My Applications', to: '/api/my-applications', icon: FileText },
+            { name: 'My Applications', to: '/my-applications', icon: FileText },
         ] : []),
 
         // Recruiter Specific
         ...(user.role === 'recruiter' ? [
-            { name: 'Post a Job', to: '/api/post-job', icon: PlusCircle },
+            { name: 'Post a Job', to: '/post-job', icon: PlusCircle },
         ] : []),
 
-        { name: 'Profile', to: '/api/profile', icon: UserCircle },
+        { name: 'Profile', to: '/profile', icon: UserCircle },
     ];
 
     return (
